@@ -1,0 +1,15 @@
+.cafeMenuCustomizer-container select{
+    margin-left: 0!important;
+  
+}
+.clear-filters{
+    padding: 0.3rem .5rem;
+    color: #fff;
+    font-size: 0.98rem;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    outline: none;
+    background: rgb(136, 4, 4)!important;
+    border-radius :5px 0 0 5px !important;
+    border-right: 0;
+}

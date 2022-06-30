@@ -1,0 +1,33 @@
+.AdminSiteInfo-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-row: 1fr;
+    gap: 1rem;
+    list-style: none;
+    padding: 2rem 1rem;
+    border-bottom: 2px solid rgb(201, 200, 200);
+}
+.AdminSiteInfo-container li{
+    border: 1px solid rgb(201, 200, 200);
+    padding: 50px;
+    border-radius: 5px;
+    background: linear-gradient(180deg , rgb(19, 21, 80) 0% , rgb(31, 35, 141) 100%) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: "Nothing" , Arial;
+}
+.AdminSiteInfo-container li h3{
+    font-size: 1.9vw;
+    font-weight: 500;
+    margin-bottom: .9rem;
+}
+.AdminSiteInfo-container li p{
+    font-size: 1.2vw;
+    font-weight: 400;
+}
+.AdminSiteInfo-container li:hover{
+    background: linear-gradient(180deg , rgb(19, 21, 80) 0% , rgb(231, 187, 115) 150%);
+}

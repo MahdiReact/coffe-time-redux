@@ -1,25 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { setSortedDrinks } from "../../../configureStore/sortedDrinks";
 import { deleteDrink, getAllDrinks } from "../../../services/drinks";
 import MenuPaginate from "../../cafeMenu/MenuPaginate";
 import { Paginate } from "../../paginate/indexDrinks";
+import { useSelector, useDispatch } from "react-redux";
 
 import AdminBox from "../../repeatable/AdminBox";
 import Title from "../../repeatable/Title";
 import "./AdminArchiveDrinks.css";
+import { setDrinks } from "../../../configureStore/drinksSlice";
 
-const AdminArchiveDrinks = ({ getDrinks, setDrinks }) => {
+const AdminArchiveDrinks = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage] = useState(9);
 
+  const drinks = useSelector((state) => state.drinks);
+  const dispatch = useDispatch();
   const node = useRef(null);
 
-  const indexedDrinks = Paginate([...getDrinks], currentPage, perPage);
+  const indexedDrinks = Paginate([...drinks], currentPage, perPage);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data: drinksArray } = await getAllDrinks();
-        setDrinks(drinksArray);
+
+        dispatch(setDrinks(drinksArray));
       } catch (err) {
         console.log(err);
       }
@@ -27,13 +33,13 @@ const AdminArchiveDrinks = ({ getDrinks, setDrinks }) => {
     fetchData();
   }, [indexedDrinks]);
 
-  // const handlePageChange = (page) => {
-  //   setCurrentPage(page);
-  // };
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
   const activateButtons = (id) => {
     console.log(id);
     if (id !== "close") {
-      node.current = getDrinks.find((drink) => drink.id === id);
+      node.current = drinks.find((drink) => drink.id === id);
       console.log(node.current);
     } else {
       node.current = null;
@@ -52,7 +58,7 @@ const AdminArchiveDrinks = ({ getDrinks, setDrinks }) => {
     }
   };
   return (
-    <AdminBox>
+    <AdminBox customStyle={{ position: "relative" }}>
       <Title text={"آرشیو نوشیدنی ها"} color="#fff" />
 
       {node.current !== null ? (
@@ -81,7 +87,7 @@ const AdminArchiveDrinks = ({ getDrinks, setDrinks }) => {
 
       <ul className="admin-archiveDrinks">
         {indexedDrinks.map((drink) => (
-          <div>
+          <div key={drink.id}>
             <li
               key={drink.id}
               onClick={() => {
@@ -102,13 +108,18 @@ const AdminArchiveDrinks = ({ getDrinks, setDrinks }) => {
               </div>
             </li>
             <div>
-              <div>
-                
-              </div>
+              <div></div>
             </div>
           </div>
         ))}
       </ul>
+      <MenuPaginate
+        totalDrinks={drinks.length}
+        currentPage={currentPage}
+        perPage={perPage}
+        onPageChange={handlePageChange}
+        customStyle={{ bottom: ".2rem", left: "50%" }}
+      />
     </AdminBox>
   );
 };

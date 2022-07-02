@@ -10,7 +10,7 @@ import SearchBox from "../topMenu/SearchBox";
 import "./cafeMenuCustomizer.css";
 
 
-const CafeMenuCustomizer = () => {
+const CafeMenuCustomizer = ({setCurrentPage}) => {
   const drinks = useSelector((state) => state.drinks);
   const dispatch = useDispatch();
 

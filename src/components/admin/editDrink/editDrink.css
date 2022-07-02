@@ -1,0 +1,82 @@
+.editDrink-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem .5rem;
+  width: 100%;
+}
+.edit-form-title {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.25vw;
+  font-weight: 300;
+}
+.drinkInfo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+ 
+}
+.drinkInfo-container img {
+  width: 36vw;
+  border-radius: 5px;
+}
+.editDrink-form-inputs{
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+
+}
+
+.editDrink-form input[type="text"],
+.editDrink-form select {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  margin-bottom: 0.5rem;
+  font-size: 1.2vw;
+  width: 100%;
+}
+.editDrink-form textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  font-size: 1.1vw;
+  margin-bottom: 0.5rem;
+  height: 8vw;
+}
+.coffeBase-edit-container {
+  font-size: 1.2vw;
+}
+
+.editDrink-form input[type="checkbox"] {
+  border-radius: 5px;
+  border: 0;
+  outline: none;
+  margin-right: 0.5rem;
+}
+.edit-drinkInfo-btns {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+}
+.editing-btn,
+.cancel-btn {
+  display: block;
+  padding: .5rem 1rem;
+  font-size: 1.2vw;
+  width: 100%;
+}
+.editing-btn {
+  margin-bottom: 3rem;
+}

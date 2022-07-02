@@ -65,7 +65,7 @@ const AdminArchiveDrinks = () => {
         <div className="archiveShowButtons-container">
           <Title text={node.current.drinkName} color="#fff" />
           <div className="archiveShowButtons">
-            <Link to="/admin">ویرایش نوشیدنی</Link>
+            <Link to={`/admin/edit/${node.current.id}`}>ویرایش نوشیدنی</Link>
             <button
               onClick={() => {
                 handleDeleteDrink(node.current.id);

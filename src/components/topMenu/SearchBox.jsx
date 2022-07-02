@@ -12,11 +12,12 @@ const SearchBox = () => {
 
   const handleSearchDrink = () => {
     let searchedDrinks = drinks;
+ 
 
     if (searchedValue !== "") {
       searchedDrinks = drinks.filter((drink) =>
         drink.drinkName.includes(searchedValue)
-      )
+      );
     }
     dispatch(setSortedDrinks(searchedDrinks));
   };
@@ -26,7 +27,7 @@ const SearchBox = () => {
   const cancelSearchDrinks = () => {
     setSearchedValue("");
     dispatch(setSortedDrinks(drinks));
-  }
+  };
 
   return (
     <div className="searchBox-container">
@@ -38,7 +39,10 @@ const SearchBox = () => {
         onChange={handleTyping}
       />
       <button className="btn fa fa-search" onClick={handleSearchDrink} />
-      <button className="btn cancelSearch fa fa-times" onClick={cancelSearchDrinks} />
+      <button
+        className="btn cancelSearch fa fa-times"
+        onClick={cancelSearchDrinks}
+      />
     </div>
   );
 };

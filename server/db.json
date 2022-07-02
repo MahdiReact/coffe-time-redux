@@ -13,7 +13,7 @@
       "drinkName": "نسکافه",
       "price": "26 تومان",
       "drinkImage": "https://castilla.ir/wp-content/uploads/2021/05/%D9%82%D9%87%D9%88%D9%873.jpg",
-      "details": "یک نوشیدنی لذت بخش برای هر زمان و مکان",
+      "details": "نسکافه مخصوص عاشقان میکس قهوه و شیر",
       "id": "4",
       "category": "hot",
       "coffeBase": true
@@ -98,6 +98,15 @@
       "details": "اسپرسو دوبل مخصوص معتادان کافعین با دوز ب شدت بالا",
       "coffeBase": true,
       "id": "ERcMm8v"
+    },
+    {
+      "drinkName": "نوشابه",
+      "price": "5 تومان",
+      "category": "cold",
+      "drinkImage": "https://static2.mosalasonline.com/thumbnail/CBanaV0BVYnh/QFpbKTBJgr2mhgj4xINHa7okrg9bgOAsE_H2C0hJSASojHBLdmOPjsVmA-yVmeon1hSQbmcNt81n8iDngPC4OB47x5LjuL5b/5ersH6M32uSO.jpg",
+      "details": "این نوشیدنی را درکنار فست فود دلپذیر  خود سرو کنید و لذت ببرید.",
+      "coffeBase": false,
+      "id": "6Sg2O-w"
     }
   ]
 }

@@ -9,23 +9,20 @@ import AddDrinkForm from "./components/admin/addDrinkForm/AddDrinkForm";
 import AdminArchiveDrinks from "./components/admin/adminArchiveDrinks/AdminArchiveDrinks";
 import { setDrinks } from "./configureStore/drinksSlice";
 import { initSortedDrinks } from "./configureStore/sortedDrinks";
+import EditDrink from "./components/admin/editDrink/EditDrink";
 
 function App() {
   // const [getDrinks, setDrinks] = useState([]);
   // const [filteredDrinks, setFilteredDrinks] = useState([]);
 
   const dispatch = useDispatch();
- 
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data: drinksArray } = await getAllDrinks();
-         dispatch(setDrinks(
-          drinksArray
-         ));  
-         dispatch(initSortedDrinks(
-          drinksArray
-         ))
+        dispatch(setDrinks(drinksArray));
+        dispatch(initSortedDrinks(drinksArray));
       } catch (err) {
         console.log(err.message);
       }
@@ -58,15 +55,9 @@ function App() {
         />
       </Route>
       <Route path="/admin" element={<AdminContainer />}>
-        <Route
-          path="drinks"
-          element={
-            <AdminArchiveDrinks
-            // getDrinks={getDrinks} setDrinks={setDrinks}
-            />
-          }
-        />
+        <Route path="drinks" element={<AdminArchiveDrinks />} />
         <Route path="addDrink" element={<AddDrinkForm />} />
+        <Route path="edit/:id" element={<EditDrink/>} />
       </Route>
     </Routes>
   );

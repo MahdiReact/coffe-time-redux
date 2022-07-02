@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, Navigate, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setSortedDrinks } from "../../../configureStore/sortedDrinks";
 import { deleteDrink, getAllDrinks } from "../../../services/drinks";
 import MenuPaginate from "../../cafeMenu/MenuPaginate";
@@ -15,7 +15,10 @@ const AdminArchiveDrinks = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [perPage] = useState(9);
 
+  const [render, setRender] = useState(false);
+
   const drinks = useSelector((state) => state.drinks);
+
   const dispatch = useDispatch();
   const node = useRef(null);
 
@@ -31,18 +34,18 @@ const AdminArchiveDrinks = () => {
       }
     };
     fetchData();
-  }, [indexedDrinks]);
+  }, []);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
   const activateButtons = (id) => {
-    console.log(id);
     if (id !== "close") {
       node.current = drinks.find((drink) => drink.id === id);
-      console.log(node.current);
+      setRender(!render);
     } else {
       node.current = null;
+      setRender(!render);
     }
   };
 
@@ -51,7 +54,9 @@ const AdminArchiveDrinks = () => {
       const { status } = await deleteDrink(drinkId);
       if (status === 200) {
         node.current = null;
-        console.log(status);
+        let array = drinks.filter((drink) => drink.id !== drinkId);
+        dispatch(setDrinks(array));
+        dispatch(setSortedDrinks(array));
       }
     } catch (err) {
       console.log(err);

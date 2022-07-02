@@ -4,11 +4,11 @@ const drinks = createSlice({
   name: "drinks",
   initialState: [],
   reducers: {
-    setDrinks: (state ,{ payload }) => {
+    setDrinks : (state ,{ payload }) => {
       return payload;
     }
   },
 });
 
-export const { setDrinks } = drinks.actions;
+export const { setDrinks,deleteADrink } = drinks.actions;
 export default drinks.reducer;

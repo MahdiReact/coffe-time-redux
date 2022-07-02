@@ -12,8 +12,7 @@ import { initSortedDrinks } from "./configureStore/sortedDrinks";
 import EditDrink from "./components/admin/editDrink/EditDrink";
 
 function App() {
-  // const [getDrinks, setDrinks] = useState([]);
-  // const [filteredDrinks, setFilteredDrinks] = useState([]);
+
 
   const dispatch = useDispatch();
 
@@ -37,9 +36,7 @@ function App() {
         path="/drinks"
         element={
           <Home
-          // getDrinks={getDrinks}
-          // filteredDrinks={filteredDrinks}
-          // setFilteredDrinks={setFilteredDrinks}
+
           />
         }
       >
@@ -47,9 +44,7 @@ function App() {
           path=":drinkId"
           element={
             <Home
-            // getDrinks={getDrinks}
-            // filteredDrinks={filteredDrinks}
-            // setFilteredDrinks={setFilteredDrinks}
+
             />
           }
         />
